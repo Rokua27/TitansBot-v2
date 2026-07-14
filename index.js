@@ -10,3 +10,32 @@ console.log(`🤖 ${config.nombreBot}`)
 console.log(`📦 Versión: ${config.version}`)
 console.log(`🏆 Comunidad: ${config.comunidad}`)
 console.log("================================")
+
+// =============================
+// BASES DE DATOS
+// =============================
+
+const roles = cargarJSON(
+    "./data/roles.json",
+    {}
+)
+
+const advertencias = cargarJSON(
+    "./data/advertencias.json",
+    {}
+)
+
+const actividad = cargarJSON(
+    "./data/actividad.json",
+    {}
+)
+
+const silenciados = cargarJSON(
+    "./data/silenciados.json",
+    {}
+)
+
+const logs = cargarJSON(
+    "./data/logs.json",
+    []
+)
