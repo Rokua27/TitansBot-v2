@@ -15,6 +15,12 @@ const {
     guardarJSON
 } = require("./utils/utils")
 
+const {
+    cargarComandos
+} = require("./utils/cargarComandos")
+
+const comandos = cargarComandos()
+
 console.log("================================")
 console.log(`🤖 ${config.nombreBot}`)
 console.log(`📦 Versión: ${config.version}`)
@@ -128,7 +134,59 @@ async function iniciarBot() {
         "creds.update",
         saveCreds
     )
+sock.ev.on(
+    "messages.upsert",
+    async ({ messages }) => {
 
+        const mensaje = messages[0]
+
+        if (!mensaje.message)
+            return
+
+        const texto =
+            mensaje.message.conversation ||
+            mensaje.message.extendedTextMessage?.text ||
+            ""
+
+        if (!texto.startsWith(config.prefijo))
+            return
+
+        const args =
+            texto.slice(
+                config.prefijo.length
+            ).trim().split(" ")
+
+        const comandoNombre =
+            args.shift().toLowerCase()
+
+        const comando =
+            comandos[comandoNombre]
+
+        if (!comando)
+            return
+
+        try {
+
+            await comando.ejecutar(
+                sock,
+                mensaje,
+                args
+            )
+
+        } catch (error) {
+
+            console.log(error)
+
+            await sock.sendMessage(
+                mensaje.key.remoteJid,
+                {
+                    text:
+                        "❌ Error ejecutando comando."
+                }
+            )
+        }
+    }
+)
     sock.ev.on(
         "connection.update",
         async (update) => {
