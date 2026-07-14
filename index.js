@@ -13,7 +13,7 @@ const config = require("./systems/config")
 const {
     cargarJSON,
     guardarJSON
-} = require("./utils/u detils")
+} = require("./utils/utils")
 
 console.log("================================")
 console.log(`🤖 ${config.nombreBot}`)
