@@ -155,12 +155,17 @@ async function iniciarBot() {
 
             if (connection === "open") {
 
-                console.log(
-                    "✅ WhatsApp conectado correctamente"
-                )
+    console.log(
+        "✅ WhatsApp conectado correctamente"
+    )
 
-                qrImage = null
-            }
+    console.log(
+        "📱 Número conectado:",
+        sock.user.id
+    )
+
+    qrImage = null
+}
 
             if (connection === "close") {
 
