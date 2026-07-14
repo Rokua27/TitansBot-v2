@@ -1,0 +1,8 @@
+{
+  "name": "titansbot-v2",
+  "version": "2.0.0",
+  "main": "index.js",
+  "scrpts": {
+    "start": "node index.js"
+  }
+}
