@@ -148,9 +148,9 @@ async function iniciarBot() {
                 console.log("================================")
                 console.log("📱 QR generado correctamente")
                 console.log("Abre:")
-                console.log("https://TU-SERVICIO.onrender.com/qr")
+                console.log("https://titansbot-v2.onrender.com/qr")
                 console.log("================================")
-                console.log("")
+                
             }
 
             if (connection === "open") {
