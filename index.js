@@ -49,3 +49,11 @@ const logs = cargarJSON(
     "./data/logs.json",
     []
 )
+
+// =============================
+// VARIABLES GLOBALES
+// =============================
+
+const PORT = process.env.PORT || 10000
+
+let qrImage = null
