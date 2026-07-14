@@ -8,7 +8,7 @@ const {
     fetchLatestBaileysVersion,
     DisconnectReason
 } = require("@whiskeysockets/baileys")
-const config = require("./system/config")
+const config = require("./systems/config")
 
 const {
     cargarJSON,
