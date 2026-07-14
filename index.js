@@ -1,3 +1,13 @@
+const http = require("http")
+const QRCode = require("qrcode")
+const pino = require("pino")
+
+const {
+    default: makeWASocket,
+    useMultiFileAuthState,
+    fetchLatestBaileysVersion,
+    DisconnectReason
+} = require("@whiskeysockets/baileys")
 const config = require("./system/config")
 
 const {
