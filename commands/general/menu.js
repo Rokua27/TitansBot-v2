@@ -8,47 +8,76 @@ module.exports = {
     ) => {
 
         const menu = `
-🤖 *TitansBot V2*
+╔══════════════════════╗
+║      🤖 TITANSBOT V2      ║
+║ ⚔️  LIGA TITANS TEAMS  ⚔️ ║
+╚══════════════════════╝
 
-📌 Comandos disponibles
+🏆 Liga Titans Team
+📦 Versión: 2.0.0
+👑 Prefijo: /
 
-/general
-• /ping
-• /menu
+━━━━━━━━━━━━━━━━━━━━━━
+📌 COMANDOS DISPONIBLES
+━━━━━━━━━━━━━━━━━━━━━━
 
-👮 Moderación
-• /warn
-• /unwarn
-• /warnings
-• /resetwarnings
-• /mute
-• /unmute
-• /mutelist
-• /kick
-• /tagall
-• /tagadmins
-• /promote
-• /demote
+╭━━━〔 🌐 GENERAL 〕━━━╮
+┃ ⚡ /ping
+┃ 📖 /menu
+╰━━━━━━━━━━━━━━━━━━╯
 
-🎭 Roles
-• /rol
-• /quitarrol
-• /roles
+╭━━━〔 🛡 MODERACIÓN 〕━━━╮
+┃ ⚠️ /warn
+┃ ♻️ /unwarn
+┃ 📋 /warnings
+┃ 🔇 /mute
+┃ 🔊 /unmute
+┃ 📜 /mutelist
+╰━━━━━━━━━━━━━━━━━━╯
 
-⚽ Liga
-• /tabla
-• /partidos
+╭━━━〔 👑 ROLES Y STAFF 〕━━━╮
+┃ 🏅 /rol
+┃ 👑 /capitan
+╰━━━━━━━━━━━━━━━━━━╯
 
-🎮 Diversión
-• /8ball
-• /dado
-• /moneda
+╭━━━〔 🏆 LIGA MLBB 〕━━━╮
+┃ 🏟 /addequipo
+┃ 🏟 /equipos
+┃ ❌ /removeequipo
+┃ 👤 /addjugador
+┃ 👤 /jugador
+┃ 👥 /jugadores
+┃ 📋 /perfil
+┃ 🧾 /roster
+┃ ⚔️ /batalla
+┃ 📚 /batallas
+┃ 🏆 /resultado
+┃ 📊 /tabla
+┃ 📜 /historial
+┃ ⭐ /mvp
+┃ 🌟 /mvps
+┃ 🥇 /topmvp
+┃ 🔄 /transferir
+╰━━━━━━━━━━━━━━━━━━╯
 
-📊 Actividad
-• /actividad
-• /ranking
-• /stats
-`;
+╭━━━〔 🎲 DIVERSIÓN 〕━━━╮
+┃ 🎱 /8ball
+┃ 🎲 /dado
+┃ 🪙 /moneda
+╰━━━━━━━━━━━━━━━━━━╯
+
+╭━━━〔 📈 ACTIVIDAD 〕━━━╮
+┃ 📊 /actividad
+┃ 🏅 /ranking
+┃ 📈 /stats
+╰━━━━━━━━━━━━━━━━━━╯
+
+━━━━━━━━━━━━━━━━━━━━━━
+🏆 TITANSBOT V2
+⚔️ Built for MLBB Communities
+👑 "Donde nacen las leyendas"
+━━━━━━━━━━━━━━━━━━━━━━
+`
 
         await sock.sendMessage(
             msg.key.remoteJid,
