@@ -7,6 +7,8 @@ module.exports = {
 
     nombre: "resetwarnings",
 
+    admin: true,
+    
     ejecutar: async (
         sock,
         mensaje,
