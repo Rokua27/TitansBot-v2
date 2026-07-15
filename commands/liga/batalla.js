@@ -5,7 +5,7 @@ const {
 
 module.exports = {
 
-    nombre: "partido",
+    nombre: "batalla",
 
     ejecutar: async (
         sock,
@@ -21,7 +21,7 @@ module.exports = {
                     text:
 `❌ Uso correcto:
 
-/partido Titans_Esports Dragones_ML 25-07-2026 20:00 BO3`
+/batalla Titans_Esports Dragon_Warriors 25-07-2025 20:00 BO3`
                 }
             )
         }
@@ -33,7 +33,9 @@ module.exports = {
             args[1].replaceAll("_", " ")
 
         const fecha = args[2]
+
         const hora = args[3]
+
         const formato = args[4]
 
         const liga =
@@ -41,17 +43,18 @@ module.exports = {
                 "./data/liga.json",
                 {
                     equipos: {},
-                    partidos: []
+                    batallas: []
                 }
             )
 
-        liga.partidos.push({
+        liga.batallas.push({
 
             local,
             visitante,
             fecha,
             hora,
-            formato
+            formato,
+            estado: "Programada"
 
         })
 
@@ -64,13 +67,13 @@ module.exports = {
             mensaje.key.remoteJid,
             {
                 text:
-`📅 Partido registrado
+`⚔️ BATALLA PROGRAMADA ⚔️
 
-🏠 ${local}
+🏆 ${local}
 🆚
-✈️ ${visitante}
+🏆 ${visitante}
 
-📆 ${fecha}
+📅 ${fecha}
 🕒 ${hora}
 🎮 ${formato}`
             }
