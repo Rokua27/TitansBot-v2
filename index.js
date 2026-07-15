@@ -20,6 +20,11 @@ const cargarComandos =
         "./utils/cargarComandos"
     )
 
+const esAdmin =
+    require(
+        "./utils/esAdmin"
+    )
+
 console.log("================================")
 console.log(`🤖 ${config.nombreBot}`)
 console.log(`📦 Versión: ${config.version}`)
@@ -175,16 +180,14 @@ guardarJSON(
                 comandoNombre
             )
 
-        if (!comando)
-            return
-const esAdmin =
-    require("./utils/esAdmin")
+if (!comando)
+    return
 
-if (comando.admin) {
+// =============================
+// PERMISOS ADMIN
+// =============================
 
-    const usuario =
-        mensaje.key.participant ||
-        mensaje.key.remoteJid
+if (comando.admin === true) {
 
     const admin =
         await esAdmin(
@@ -199,7 +202,9 @@ if (comando.admin) {
             mensaje.key.remoteJid,
             {
                 text:
-                    "⛔ Este comando es exclusivo para administradores."
+`⛔ COMANDO RESTRINGIDO
+
+Solo los administradores del grupo pueden utilizar este comando.`
             }
         )
     }
@@ -251,24 +256,23 @@ if (comando.admin) {
 
         // BIENVENIDA
         if (
-            data.action === "add" &&
-            config.welcome
-        ) {
+    data.action === "add" &&
+    config.welcome
+) {
 
-            await sock.sendMessage(
-                grupo,
-                {
-                    text:
-`━━━━━━━━━━━━━━━━━━
-⚔════════════════════⚔
-      👋 ¡BIENVENIDO
+    await sock.sendMessage(
+        grupo,
+        {
+            text:
+`⚔════════════════════⚔
+        👋 ¡BIENVENIDO!
 ⚔════════════════════⚔
 
 🎮 Jugador:
-@usuario
+@${participante.split("@")[0]}
 
 🏆 Bienvenido a
-*LIGA TITANS TEAMS*
+*LIGA TITANS TEAM*
 
 🔥 El campo de batalla te espera.
 
@@ -276,34 +280,34 @@ if (comando.admin) {
 ⭐ Gana tus MVP.
 🏆 Lleva a tu escuadra a la gloria.
 
-📌 Usa:
+📌 Comandos importantes:
 ➤ /menu
-➤ /liga
+➤ /tabla
+➤ /equipos
+➤ /batallas
 
-⚔ ¡ DONDE NACEN LAS LEYENDAS !
-⚔════════════════════⚔
-━━━━━━━━━━━━━━━━━━`,
-                    mentions: [participante]
-                }
-            )
+⚔ ¡DONDE NACEN LAS LEYENDAS!
+⚔════════════════════⚔`,
+            mentions: [participante]
+        }
+    )
         }
 
         // DESPEDIDA
         if (
-            data.action === "remove" &&
-            config.bye
-        ) {
+    data.action === "remove" &&
+    config.bye
+) {
 
-            await sock.sendMessage(
-                grupo,
-                {
-                    text:
-`━━━━━━━━━━━━━━━━━━
-⚔════════════════════⚔
+    await sock.sendMessage(
+        grupo,
+        {
+            text:
+`⚔════════════════════⚔
       🚪 UN GUERRERO PARTE
 ⚔════════════════════⚔
 
-👤 @usuario
+👤 @${participante.split("@")[0]}
 
 🏆 Abandona la Liga Titans Team.
 
@@ -315,14 +319,11 @@ tu próximo destino.
 
 Hasta la próxima temporada.
 
-⚔════════════════════⚔
-━━━━━━━━━━━━━━━━━━`,
-                    mentions: [participante]
-                }
-            )
+⚔════════════════════⚔`,
+            mentions: [participante]
         }
-    }
-) 
+    )
+        }
     sock.ev.on(
         "connection.update",
         async (update) => {
