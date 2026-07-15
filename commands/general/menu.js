@@ -13,7 +13,7 @@ module.exports = {
 ║ ⚔️  LIGA TITANS TEAMS  ⚔️ ║
 ╚══════════════════════╝
 
-🏆 Liga Titans Team
+🏆 Liga Titans Teams
 📦 Versión: 2.0.0
 👑 Prefijo: /
 
@@ -40,7 +40,7 @@ module.exports = {
 ┃ 👑 /capitan
 ╰━━━━━━━━━━━━━━━━━━╯
 
-╭━━━〔 🏆 LIGA MLBB 〕━━━╮
+╭━━━〔 🏆 LIGA TITANS TEAMS 〕━━━╮
 ┃ 🏟 /addequipo
 ┃ 🏟 /equipos
 ┃ ❌ /removeequipo
