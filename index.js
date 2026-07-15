@@ -200,6 +200,103 @@ guardarJSON(
         }
     }
 )
+ sock.ev.on(
+    "group-participants.update",
+    async (data) => {
+
+        const {
+            cargarJSON
+        } = require("./utils/utils")
+
+        const config =
+            cargarJSON(
+                "./data/configGrupo.json",
+                {
+                    welcome: true,
+                    bye: true
+                }
+            )
+
+        const grupo =
+            data.id
+
+        const participante =
+            data.participants[0]
+
+        // BIENVENIDA
+        if (
+            data.action === "add" &&
+            config.welcome
+        ) {
+
+            await sock.sendMessage(
+                grupo,
+                {
+                    text:
+`━━━━━━━━━━━━━━━━━━
+⚔════════════════════⚔
+      👋 ¡BIENVENIDO
+⚔════════════════════⚔
+
+🎮 Jugador:
+@usuario
+
+🏆 Bienvenido a
+*LIGA TITANS TEAMS*
+
+🔥 El campo de batalla te espera.
+
+👑 Demuestra tu habilidad.
+⭐ Gana tus MVP.
+🏆 Lleva a tu escuadra a la gloria.
+
+📌 Usa:
+➤ /menu
+➤ /liga
+
+⚔ ¡ DONDE NACEN LAS LEYENDAS !
+⚔════════════════════⚔
+━━━━━━━━━━━━━━━━━━`,
+                    mentions: [participante]
+                }
+            )
+        }
+
+        // DESPEDIDA
+        if (
+            data.action === "remove" &&
+            config.bye
+        ) {
+
+            await sock.sendMessage(
+                grupo,
+                {
+                    text:
+`━━━━━━━━━━━━━━━━━━
+⚔════════════════════⚔
+      🚪 UN GUERRERO PARTE
+⚔════════════════════⚔
+
+👤 @usuario
+
+🏆 Abandona la Liga Titans Team.
+
+⚔ Sus batallas quedarán
+grabadas en nuestra historia.
+
+🔥 Que la grieta ilumine
+tu próximo destino.
+
+Hasta la próxima temporada.
+
+⚔════════════════════⚔
+━━━━━━━━━━━━━━━━━━`,
+                    mentions: [participante]
+                }
+            )
+        }
+    }
+) 
     sock.ev.on(
         "connection.update",
         async (update) => {
