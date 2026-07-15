@@ -177,7 +177,33 @@ guardarJSON(
 
         if (!comando)
             return
+const esAdmin =
+    require("./utils/esAdmin")
 
+if (comando.admin) {
+
+    const usuario =
+        mensaje.key.participant ||
+        mensaje.key.remoteJid
+
+    const admin =
+        await esAdmin(
+            sock,
+            mensaje.key.remoteJid,
+            usuario
+        )
+
+    if (!admin) {
+
+        return await sock.sendMessage(
+            mensaje.key.remoteJid,
+            {
+                text:
+                    "⛔ Este comando es exclusivo para administradores."
+            }
+        )
+    }
+}
         try {
 
             await comando.ejecutar(
