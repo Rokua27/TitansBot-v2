@@ -7,6 +7,8 @@ module.exports = {
 
     nombre: "warn",
 
+    admin: true,
+    
     ejecutar: async (
         sock,
         mensaje,
