@@ -7,6 +7,8 @@ module.exports = {
 
     nombre: "removeequipo",
 
+    admin: true,
+    
     ejecutar: async (
         sock,
         mensaje,
