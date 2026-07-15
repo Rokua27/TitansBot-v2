@@ -1,0 +1,74 @@
+const {
+    cargarJSON,
+    guardarJSON
+} = require("../../utils/utils")
+
+module.exports = {
+
+    nombre: "rol",
+
+    ejecutar: async (
+        sock,
+        mensaje,
+        args
+    ) => {
+
+        const usuario =
+            mensaje.message.extendedTextMessage
+            ?.contextInfo
+            ?.mentionedJid?.[0]
+
+        if (!usuario) {
+
+            return await sock.sendMessage(
+                mensaje.key.remoteJid,
+                {
+                    text:
+                        "❌ Debes mencionar un usuario."
+                }
+            )
+        }
+
+        const rol =
+            args.slice(1).join(" ")
+
+        if (!rol) {
+
+            return await sock.sendMessage(
+                mensaje.key.remoteJid,
+                {
+                    text:
+                        "❌ Debes indicar un rol."
+                }
+            )
+        }
+
+        const roles =
+            cargarJSON(
+                "./data/roles.json",
+                {}
+            )
+
+        roles[usuario] = rol
+
+        guardarJSON(
+            "./data/roles.json",
+            roles
+        )
+
+        await sock.sendMessage(
+            mensaje.key.remoteJid,
+            {
+                text:
+`👑 Rol asignado
+
+👤 Usuario:
+@${usuario.split("@")[0]}
+
+🎭 Rol:
+${rol}`,
+                mentions: [usuario]
+            }
+        )
+    }
+}
