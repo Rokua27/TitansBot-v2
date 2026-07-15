@@ -33,6 +33,7 @@ module.exports = {
 🎭 Roles
 • /rol
 • /quitarrol
+• /roles
 
 ⚽ Liga
 • /tabla
