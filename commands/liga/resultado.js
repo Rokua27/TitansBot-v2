@@ -43,7 +43,7 @@ module.exports = {
                 "./data/liga.json",
                 {
                     equipos: {},
-                    partidos: []
+                    batallas : []
                 }
             )
 
@@ -107,7 +107,7 @@ module.exports = {
             equipoVisitante.pts += 1
         }
 
-        liga.partidos.push({
+        liga.batallas.push({
 
             local,
             marcadorLocal,
