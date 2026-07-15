@@ -21,7 +21,9 @@ module.exports = {
 • /unwarn
 • /warnings
 • /resetwarnings
-• /silenciar
+• /mute
+• /unmute
+• /mutelist
 • /expulsar
 
 🎭 Roles
