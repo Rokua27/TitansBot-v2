@@ -2,6 +2,8 @@ module.exports = {
 
     nombre: "kick",
 
+    admin: true,
+    
     ejecutar: async (
         sock,
         mensaje,
