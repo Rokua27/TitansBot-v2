@@ -7,6 +7,8 @@ module.exports = {
 
     nombre: "bye",
 
+    admin: true,
+    
     ejecutar: async (
         sock,
         mensaje,
