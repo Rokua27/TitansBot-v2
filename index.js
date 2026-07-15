@@ -161,7 +161,9 @@ sock.ev.on(
             args.shift().toLowerCase()
 
         const comando =
-            comandos[comandoNombre]
+            comandos.get(
+                comandoNombre
+            )
 
         if (!comando)
             return
