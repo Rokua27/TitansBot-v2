@@ -324,6 +324,8 @@ Hasta la próxima temporada.
         }
     )
         }
+    }
+)
     sock.ev.on(
         "connection.update",
         async (update) => {
