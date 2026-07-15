@@ -3,42 +3,48 @@ const path = require("path")
 
 function cargarComandos() {
 
-    const comandos = {}
+    const comandos = new Map()
 
-    const carpetas =
+    const categorias =
         fs.readdirSync("./commands")
 
-    for (const carpeta of carpetas) {
+    for (const categoria of categorias) {
+
+        const rutaCategoria =
+            path.join(
+                "./commands",
+                categoria
+            )
 
         const archivos =
-            fs.readdirSync(
-                `./commands/${carpeta}`
+            fs.readdirSync(rutaCategoria)
+            .filter(
+                archivo =>
+                    archivo.endsWith(".js")
             )
 
         for (const archivo of archivos) {
 
-            if (!archivo.endsWith(".js"))
-                continue
-
             const comando =
                 require(
-                    path.join(
-                        process.cwd(),
-                        "commands",
-                        carpeta,
-                        archivo
-                    )
+                    "../commands/" +
+                    categoria +
+                    "/" +
+                    archivo
                 )
 
-            comandos[
-                comando.nombre
-            ] = comando
+            comandos.set(
+                comando.nombre,
+                comando
+            )
+
+            console.log(
+                `✅ Cargado: ${comando.nombre}`
+            )
         }
     }
 
     return comandos
 }
 
-module.exports = {
-    cargarComandos
-}
+module.exports = cargarComandos
