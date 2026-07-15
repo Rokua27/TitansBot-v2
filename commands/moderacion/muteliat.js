@@ -6,6 +6,8 @@ module.exports = {
 
     nombre: "mutelist",
 
+    admin: true,
+    
     ejecutar: async (
         sock,
         mensaje
