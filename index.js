@@ -15,17 +15,18 @@ const {
     guardarJSON
 } = require("./utils/utils")
 
-const {
-    cargarComandos
-} = require("./utils/cargarComandos")
-
-const comandos = cargarComandos()
+const cargarComandos =
+    require(
+        "./utils/cargarComandos"
+    )
 
 console.log("================================")
 console.log(`🤖 ${config.nombreBot}`)
 console.log(`📦 Versión: ${config.version}`)
 console.log(`🏆 Comunidad: ${config.comunidad}`)
 console.log("================================")
+const comandos =
+    cargarComandos()
 
 // =============================
 // BASES DE DATOS
