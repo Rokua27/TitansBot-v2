@@ -19,6 +19,7 @@ module.exports = {
 👮 Moderación
 • /warn
 • /unwarn
+• /warnings
 • /silenciar
 • /expulsar
 
