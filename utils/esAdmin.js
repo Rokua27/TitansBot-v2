@@ -1,19 +1,27 @@
-module.exports = async function esAdmin(
+module.exports = async (
     sock,
     jid,
-    participante
-) {
+    usuario
+) => {
 
-    const metadata =
-        await sock.groupMetadata(jid)
+    try {
 
-    const admins =
-        metadata.participants.filter(
-            p => p.admin !== null
+        const metadata =
+            await sock.groupMetadata(jid)
+
+        const admins =
+            metadata.participants.filter(
+                p => p.admin
+            )
+
+        return admins.some(
+            admin =>
+                admin.id === usuario
         )
 
-    return admins.some(
-        admin =>
-            admin.id === participante
-    )
+    } catch {
+
+        return false
+    }
+
 }
