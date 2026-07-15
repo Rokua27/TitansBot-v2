@@ -61,7 +61,7 @@ module.exports = {
             {
                 text:
 `━━━━━━━━━━━━━━
-👤 PERFIL MLBB
+👤 PERFIL LIGA TITANS TEAMS
 ━━━━━━━━━━━━━━
 
 🏷 Nombre:
