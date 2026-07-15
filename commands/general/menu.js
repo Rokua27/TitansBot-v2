@@ -45,6 +45,7 @@ module.exports = {
 • /moneda
 
 📊 Actividad
+• /actividad
 • /ranking
 • /stats
 `;
