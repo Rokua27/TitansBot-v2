@@ -20,6 +20,7 @@ module.exports = {
 • /warn
 • /unwarn
 • /warnings
+• /resetwarnings
 • /silenciar
 • /expulsar
 
