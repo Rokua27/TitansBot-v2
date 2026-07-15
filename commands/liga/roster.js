@@ -78,7 +78,6 @@ module.exports = {
     texto +=
         `👤 ${nombre}\n`
                 }
-        )
 
         texto +=
 `\n👥 Total jugadores: ${jugadoresEquipo.length}`
