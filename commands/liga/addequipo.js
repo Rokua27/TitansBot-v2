@@ -52,15 +52,11 @@ module.exports = {
         }
 
         liga.equipos[nombreEquipo] = {
-
-            pj: 0,
-            pg: 0,
-            pe: 0,
-            pp: 0,
-            gf: 0,
-            gc: 0,
-            dg: 0,
-            pts: 0
+    pj: 0,
+    pg: 0,
+    pe: 0,
+    pp: 0,
+    pts: 0
         }
 
         guardarJSON(
