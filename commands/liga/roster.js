@@ -33,7 +33,8 @@ module.exports = {
             cargarJSON(
                 "./data/liga.json",
                 {
-                    jugadores: {}
+                    jugadores: {},
+                    equipos: {}
                 }
             )
 
@@ -53,7 +54,7 @@ module.exports = {
                 mensaje.key.remoteJid,
                 {
                     text:
-                        `📭 No hay jugadores registrados para ${equipo}.`
+`📭 No hay jugadores registrados para ${equipo}.`
                 }
             )
         }
@@ -64,20 +65,25 @@ module.exports = {
 `
 
         jugadoresEquipo.forEach(
-            ([nombre]) => {
+            ([nombre, datos]) => {
 
                 if (
-    liga.equipos[equipo]?.capitan === nombre
-) {
+                    liga.equipos[equipo]?.capitan === nombre
+                ) {
 
-    texto +=
-        `👑 ${nombre} (Capitán)\n`
+                    texto +=
+`👑 ${nombre} • ${datos.rol || "Sin rol"}
+`
 
-} else {
+                } else {
 
-    texto +=
-        `👤 ${nombre}\n`
+                    texto +=
+`👤 ${nombre} • ${datos.rol || "Sin rol"}
+`
+
                 }
+            }
+        )
 
         texto +=
 `\n👥 Total jugadores: ${jugadoresEquipo.length}`
@@ -88,5 +94,7 @@ module.exports = {
                 text: texto
             }
         )
+
     }
-            }
+
+}
