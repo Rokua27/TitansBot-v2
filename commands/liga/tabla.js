@@ -66,7 +66,7 @@ module.exports = {
         )
 
         let texto =
-`🏆 *LIGA TITANS MLBB*
+`🏆 *LIGA TITANS TEAMS*
 
 ┌──────────────────────
 │ POS │ EQUIPO │ PTS
