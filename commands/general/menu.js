@@ -24,7 +24,11 @@ module.exports = {
 • /mute
 • /unmute
 • /mutelist
-• /expulsar
+• /kick
+• /tagall
+• /tagadmins
+• /promote
+• /demote
 
 🎭 Roles
 • /rol
