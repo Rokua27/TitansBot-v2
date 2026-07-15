@@ -7,6 +7,8 @@ module.exports = {
 
     nombre: "unmute",
 
+admin: true,
+    
     ejecutar: async (
         sock,
         mensaje,
