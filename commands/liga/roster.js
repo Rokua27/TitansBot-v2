@@ -66,9 +66,18 @@ module.exports = {
         jugadoresEquipo.forEach(
             ([nombre]) => {
 
-                texto +=
-`👤 ${nombre}\n`
-            }
+                if (
+    liga.equipos[equipo]?.capitan === nombre
+) {
+
+    texto +=
+        `👑 ${nombre} (Capitán)\n`
+
+} else {
+
+    texto +=
+        `👤 ${nombre}\n`
+                }
         )
 
         texto +=
