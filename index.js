@@ -148,7 +148,17 @@ sock.ev.on(
             mensaje.message.conversation ||
             mensaje.message.extendedTextMessage?.text ||
             ""
+  const usuario =
+    mensaje.key.participant ||
+    mensaje.key.remoteJid
 
+actividad[usuario] =
+    (actividad[usuario] || 0) + 1
+
+guardarJSON(
+    "./data/actividad.json",
+    actividad
+)
         if (!texto.startsWith(config.prefijo))
             return
 
