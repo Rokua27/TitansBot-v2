@@ -2,6 +2,8 @@ module.exports = {
 
     nombre: "promote",
 
+    admin: true,
+    
     ejecutar: async (
         sock,
         mensaje,
