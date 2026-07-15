@@ -2,6 +2,8 @@ module.exports = {
 
     nombre: "demote",
 
+    admin: true,
+    
     ejecutar: async (
         sock,
         mensaje,
