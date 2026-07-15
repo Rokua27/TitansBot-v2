@@ -7,6 +7,8 @@ module.exports = {
 
     nombre: "transferir",
 
+    admin: true,
+    
     ejecutar: async (
         sock,
         mensaje,
