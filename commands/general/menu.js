@@ -30,9 +30,15 @@ module.exports = {
 ┃ ⚠️ /warn
 ┃ ♻️ /unwarn
 ┃ 📋 /warnings
+| 🗑️ /resetwarnings
 ┃ 🔇 /mute
 ┃ 🔊 /unmute
 ┃ 📜 /mutelist
+| 👢 /kick
+| 📢 /tagall
+| 🛡️ /tagadmins
+| ⬆️ /promote
+| ⬇️ /demote
 ╰━━━━━━━━━━━━━━━━━━╯
 
 ╭━━━〔 👑 ROLES Y STAFF 〕━━━╮
