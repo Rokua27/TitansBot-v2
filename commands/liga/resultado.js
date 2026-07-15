@@ -127,14 +127,14 @@ module.exports = {
         await sock.sendMessage(
             mensaje.key.remoteJid,
             {
-                text:
-`🏆 Resultado registrado
+  text:
+`⚔️ BATALLA FINALIZADA ⚔️
 
-⚔️ ${local}
-${marcadorLocal} - ${marcadorVisitante}
-${visitante}
+🏆 ${local}
+${marcadorLocal} 🆚 ${marcadorVisitante}
+🏆 ${visitante}
 
-✅ Tabla actualizada correctamente.`
+📊 La clasificación de la liga ha sido actualizada.`
             }
         )
     }
