@@ -7,7 +7,7 @@ module.exports = {
 
     nombre: "resultado",
 
-    admin: true,
+    staff: true,
     
     ejecutar: async (
         sock,
