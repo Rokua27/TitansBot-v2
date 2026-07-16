@@ -125,7 +125,9 @@ async function iniciarBot() {
 
     const { state, saveCreds } =
         await useMultiFileAuthState("./auth")
-
+    
+console.log("Ruta auth cargada correctamente")
+    
     const { version } =
         await fetchLatestBaileysVersion()
 
@@ -146,6 +148,14 @@ async function iniciarBot() {
         "creds.update",
         saveCreds
     )
+
+sock.ev.on(
+    "creds.update",
+    () => {
+        console.log("Credenciales guardadas")
+    }
+)
+    
 sock.ev.on(
     "messages.upsert",
     async ({ messages }) => {
