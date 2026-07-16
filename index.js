@@ -25,6 +25,9 @@ const esAdmin =
         "./utils/esAdmin"
     )
 
+ const esOwner =
+    require("./utils/esOwner")
+
 console.log("================================")
 console.log(`🤖 ${config.nombreBot}`)
 console.log(`📦 Versión: ${config.version}`)
@@ -209,6 +212,30 @@ Solo los administradores del grupo pueden utilizar este comando.`
         )
     }
 }
+  
+  // =============================
+// PERMISOS OWNER
+// =============================
+
+if (comando.owner === true) {
+
+    const owner =
+        esOwner(usuario)
+
+    if (!owner) {
+
+        return await sock.sendMessage(
+            mensaje.key.remoteJid,
+            {
+                text:
+`👑 COMANDO EXCLUSIVO DEL OWNER
+
+Solo el propietario del bot puede utilizar este comando.`
+            }
+        )
+    }
+}      
+        
         try {
 
             await comando.ejecutar(
