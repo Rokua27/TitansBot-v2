@@ -149,9 +149,16 @@ async function iniciarBot() {
 sock.ev.on(
     "messages.upsert",
     async ({ messages }) => {
-
+ try {
         const mensaje = messages[0]
+        // TOOO: todo tu codigo actual
+ }
+    catch (error) {
+        console.log("ERROR EN MESSAGES.UPSERT"
+        console.log(error)
 
+    }
+        
 if (!mensaje.message)
     return
 
