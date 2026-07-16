@@ -17,40 +17,69 @@ module.exports = {
         args
     ) => {
 
-        try {
+        const pregunta =
+            args.join(" ")
 
-            const respuesta =
-                await fetch(
-                    `https://generativelanguage.googleapis.com/v1beta/models?key=${process.env.GEMINI_API_KEY}`
-                )
+        if (!pregunta) {
 
-            const datos =
-                await respuesta.json()
+            return await sock.sendMessage(
+                mensaje.key.remoteJid,
+                {
+                    text:
+`🤖 Uso correcto:
 
-            console.log(
-                "MODELOS DISPONIBLES:"
-            )
-
-            datos.models.forEach(
-                modelo => {
-
-                    console.log(
-                        modelo.name,
-                        modelo.supportedGenerationMethods
-                    )
-
+/ia ¿Quién es el mejor jungla del meta actual?`
                 }
             )
+        }
+
+        try {
+
+            const modelo =
+                genAI.getGenerativeModel({
+                    model: "gemini-3.5-flash"
+                })
+
+            const prompt = `
+Eres Titans IA, la inteligencia artificial oficial de Liga Titans Team.
+
+Tu personalidad:
+- Hablas español.
+- Eres amigable y cercana.
+- Eres experta en Mobile Legends.
+- Ayudas a los jugadores a mejorar.
+- Puedes hablar sobre cualquier tema.
+- Nunca mencionas a Google ni Gemini.
+- Siempre te presentas como Titans IA.
+- Tu tono es natural y conversacional.
+
+Pregunta del usuario:
+${pregunta}
+`
+
+            const resultado =
+                await modelo.generateContent(
+                    prompt
+                )
+
+            const respuesta =
+                resultado.response.text()
 
             await sock.sendMessage(
                 mensaje.key.remoteJid,
                 {
                     text:
-                        "✅ Revisa los logs de Render."
+`🤖 *TITANS IA*
+
+${respuesta}`
                 }
             )
 
         } catch (error) {
+
+            console.log(
+                "ERROR TITANS IA:"
+            )
 
             console.log(error)
 
@@ -58,7 +87,7 @@ module.exports = {
                 mensaje.key.remoteJid,
                 {
                     text:
-`❌ Error:
+`❌ Error conectando con Titans IA.
 
 ${error.message}`
                 }
