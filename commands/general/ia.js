@@ -44,14 +44,22 @@ module.exports = {
         await modelos.json()
 
     console.log("MODELOS DISPONIBLES:")
-    console.log(datos)
 
-    const modelo =
-        genAI.getGenerativeModel({
-            model: "gemini-1.5-flash"
-        })
+    datos.models.forEach(modelo => {
+        console.log(
+            modelo.name,
+            modelo.supportedGenerationMethods
+        )
+    })
 
-    const prompt = `
+    return await sock.sendMessage(
+        mensaje.key.remoteJid,
+        {
+            text: "✅ Revisa los logs de Render."
+        }
+    )
+
+        }`
 Eres Titans, la inteligencia artificial oficial de la comunidad Liga Titans Team.
 
 Personalidad:
