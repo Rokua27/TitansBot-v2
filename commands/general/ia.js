@@ -69,7 +69,6 @@ Frases épicas que puedes utilizar ocasionalmente:
 Pregunta del guerrero:
 ${pregunta}
 `
-`
 
             const resultado =
                 await modelo.generateContent(
