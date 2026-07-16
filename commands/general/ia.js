@@ -74,17 +74,19 @@ ${respuesta}`
                 }
             )
 
-        } catch (error) {
+        } 
+        catch (error) {
 
-            console.log(error)
+    console.log("ERROR GEMINI:")
+    console.log(error)
 
-            await sock.sendMessage(
-                mensaje.key.remoteJid,
-                {
-                    text:
-"❌ Error conectando con Titans IA."
-                }
-            )
+    await sock.sendMessage(
+        mensaje.key.remoteJid,
+        {
+            text:
+`❌ Error conectando con Titans IA.
+
+${error.message}`
         }
-    }
-}
+    )
+        }
