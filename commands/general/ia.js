@@ -87,6 +87,8 @@ ${respuesta}`
 `❌ Error conectando con Titans IA.
 
 ${error.message}`
+              }
+           )
         }
-    )
-        }
+    }
+}
