@@ -37,7 +37,7 @@ module.exports = {
 
             const modelo =
                 genAI.getGenerativeModel({
-                    model: "gemini-2.0-flash"
+                    model: "gemini-2.0"
                 })
 
             const prompt = `
