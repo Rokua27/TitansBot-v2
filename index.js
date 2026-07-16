@@ -152,17 +152,23 @@ sock.ev.on(
 
         const mensaje = messages[0]
 
-console.log("================================")
-console.log("MENSAJE RECIBIDO")
-console.log("CHAT:", mensaje.key.remoteJid)
+if (!mensaje.message)
+    return
 
 const texto =
     mensaje.message.conversation ||
     mensaje.message.extendedTextMessage?.text ||
     ""
 
+console.log("================================")
+console.log("MENSAJE RECIBIDO")
+console.log("CHAT:", mensaje.key.remoteJid)
 console.log("TEXTO:", texto)
 console.log("================================")
+
+const usuario =
+    mensaje.key.participant ||
+    mensaje.key.remoteJid
 
         if (!mensaje.message)
             return
