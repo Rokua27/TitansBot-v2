@@ -155,6 +155,7 @@ sock.ev.on(
  }
     catch (error) {
         console.log("ERROR EN MESSAGES.UPSERT"
+        )
         console.log(error)
 
     }
