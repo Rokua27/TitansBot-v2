@@ -172,11 +172,7 @@ const usuario =
 
         if (!mensaje.message)
             return
-
-        const texto =
-            mensaje.message.conversation ||
-            mensaje.message.extendedTextMessage?.text ||
-            ""
+        
   const usuario =
     mensaje.key.participant ||
     mensaje.key.remoteJid
