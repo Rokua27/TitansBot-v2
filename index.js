@@ -28,6 +28,9 @@ const esAdmin =
  const esOwner =
     require("./utils/esOwner")
 
+const esStaff =
+    require("./utils/esStaff")
+
 console.log("================================")
 console.log(`🤖 ${config.nombreBot}`)
 console.log(`📦 Versión: ${config.version}`)
@@ -235,6 +238,43 @@ Solo el propietario del bot puede utilizar este comando.`
         )
     }
 }      
+
+        // =============================
+// PERMISOS STAFF LIGA
+// =============================
+
+if (comando.staff === true) {
+
+    const staff =
+        esStaff(usuario)
+
+    const admin =
+        await esAdmin(
+            sock,
+            mensaje.key.remoteJid,
+            usuario
+        )
+
+    const owner =
+        esOwner(usuario)
+
+    if (
+        !staff &&
+        !admin &&
+        !owner
+    ) {
+
+        return await sock.sendMessage(
+            mensaje.key.remoteJid,
+            {
+                text:
+`🏆 COMANDO EXCLUSIVO STAFF LIGA
+
+Solo el Staff Liga, administradores o el Owner pueden usar este comando.`
+            }
+        )
+    }
+}
         
         try {
 
