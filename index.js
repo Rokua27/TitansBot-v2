@@ -170,6 +170,32 @@ guardarJSON(
     "./data/actividad.json",
     actividad
 )
+      // ======================
+      // TITANS IA AUTOMÁTICA
+      // ======================
+
+if (
+    texto.toLowerCase().startsWith("titans ")
+) {
+
+    const ia =
+        require(
+            "./commands/general/ia"
+        )
+
+    const pregunta =
+        texto
+            .slice(7)
+            .trim()
+            .split(" ")
+
+    return await ia.ejecutar(
+        sock,
+        mensaje,
+        pregunta
+    )
+} 
+        
         if (!texto.startsWith(config.prefijo))
             return
 
