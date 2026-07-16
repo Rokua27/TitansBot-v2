@@ -170,13 +170,6 @@ const usuario =
     mensaje.key.participant ||
     mensaje.key.remoteJid
 
-        if (!mensaje.message)
-            return
-        
-  const usuario =
-    mensaje.key.participant ||
-    mensaje.key.remoteJid
-
 actividad[usuario] =
     (actividad[usuario] || 0) + 1
 
@@ -279,7 +272,7 @@ Solo el propietario del bot puede utilizar este comando.`
     }
 }      
 
-        // =============================
+// =============================
 // PERMISOS STAFF LIGA
 // =============================
 
