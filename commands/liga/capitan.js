@@ -7,7 +7,7 @@ module.exports = {
 
     nombre: "capitan",
 
-    admin: true,
+    staff: true,
     
     ejecutar: async (
         sock,
