@@ -7,7 +7,7 @@ module.exports = {
 
     nombre: "mvp",
 
-    admin: true,
+    staff: true,
     
     ejecutar: async (
         sock,
