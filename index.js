@@ -160,6 +160,8 @@ sock.ev.on(
 
         try {
 
+            console.log("📩 EVENTO messages.upsert")
+            
             const mensaje = messages[0]
 
             if (!mensaje.message)
@@ -516,5 +518,20 @@ Hasta la próxima temporada.
         }
     )
 } 
+
+// ========================
+// HEARTBEAT DEL BOT
+// ========================
+
+setInterval(() => {
+    console.log(
+        "💓 HEARTBEAT:",
+        new Date().toLocaleString()
+    )
+}, 60000)
+
+// ========================
+// INICIAR BOT
+// ========================
 
 iniciarBot()
