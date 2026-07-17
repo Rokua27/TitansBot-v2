@@ -161,31 +161,43 @@ sock.ev.on(
         try {
 
             console.log("📩 EVENTO messages.upsert")
-            
+
             const mensaje = messages[0]
 
             if (!mensaje.message)
                 return
 
-const texto =
-    mensaje.message?.conversation ||
-    mensaje.message?.extendedTextMessage?.text ||
-    mensaje.message?.imageMessage?.caption ||
-    mensaje.message?.videoMessage?.caption ||
-    mensaje.message?.documentMessage?.caption ||
-    mensaje.message?.buttonsResponseMessage?.selectedButtonId ||
-    mensaje.message?.listResponseMessage?.singleSelectReply?.selectedRowId ||
-    mensaje.message?.interactiveResponseMessage?.nativeFlowResponseMessage?.paramsJson ||
-    ""
-console.log("================================")
-console.log("MENSAJE COMPLETO:")
-console.log(
-    JSON.stringify(
-        mensaje.message,
-        null,
-        2
-    )
-)
+            console.log(
+                "TIPO:",
+                Object.keys(mensaje.message)
+            )
+
+            const texto =
+                mensaje.message?.conversation ||
+                mensaje.message?.extendedTextMessage?.text ||
+                mensaje.message?.imageMessage?.caption ||
+                mensaje.message?.videoMessage?.caption ||
+                mensaje.message?.documentMessage?.caption ||
+                mensaje.message?.buttonsResponseMessage?.selectedButtonId ||
+                mensaje.message?.listResponseMessage?.singleSelectReply?.selectedRowId ||
+                mensaje.message?.interactiveResponseMessage?.nativeFlowResponseMessage?.paramsJson ||
+                ""
+
+            console.log(
+                "TEXTO DETECTADO:",
+                texto
+            )
+
+            console.log("==============================")
+            console.log("MENSAJE COMPLETO:")
+            console.log(
+                JSON.stringify(
+                    mensaje.message,
+                    null,
+                    2
+                )
+            )
+    
 console.log("================================")
 
 const usuario =
