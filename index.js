@@ -151,27 +151,19 @@ console.log("Ruta auth cargada correctamente")
 
 sock.ev.on(
     "creds.update",
-    () => {
-        console.log("Credenciales guardadas")
-    }
+    saveCreds
 )
     
 sock.ev.on(
     "messages.upsert",
     async ({ messages }) => {
- try {
-        const mensaje = messages[0]
-        // TOOO: todo tu codigo actual
- }
-    catch (error) {
-        console.log("ERROR EN MESSAGES.UPSERT"
-        )
-        console.log(error)
 
-    }
-        
-if (!mensaje.message)
-    return
+        try {
+
+            const mensaje = messages[0]
+
+            if (!mensaje.message)
+                return
 
 const texto =
     mensaje.message.conversation ||
@@ -337,15 +329,23 @@ Solo el Staff Liga, administradores o el Owner pueden usar este comando.`
 
         } catch (error) {
 
+            console.log(
+                "ERROR EN MESSAGES.UPSERT"
+            )
+
             console.log(error)
 
-            await sock.sendMessage(
-                mensaje.key.remoteJid,
-                {
-                    text:
+            try {
+
+                await sock.sendMessage(
+                    mensaje.key.remoteJid,
+                    {
+                        text:
                         "❌ Error ejecutando comando."
-                }
-            )
+                    }
+                )
+
+            } catch {}
         }
     }
 )
