@@ -166,14 +166,24 @@ sock.ev.on(
                 return
 
 const texto =
-    mensaje.message.conversation ||
-    mensaje.message.extendedTextMessage?.text ||
+    mensaje.message?.conversation ||
+    mensaje.message?.extendedTextMessage?.text ||
+    mensaje.message?.imageMessage?.caption ||
+    mensaje.message?.videoMessage?.caption ||
+    mensaje.message?.documentMessage?.caption ||
+    mensaje.message?.buttonsResponseMessage?.selectedButtonId ||
+    mensaje.message?.listResponseMessage?.singleSelectReply?.selectedRowId ||
+    mensaje.message?.interactiveResponseMessage?.nativeFlowResponseMessage?.paramsJson ||
     ""
-
 console.log("================================")
-console.log("MENSAJE RECIBIDO")
-console.log("CHAT:", mensaje.key.remoteJid)
-console.log("TEXTO:", texto)
+console.log("MENSAJE COMPLETO:")
+console.log(
+    JSON.stringify(
+        mensaje.message,
+        null,
+        2
+    )
+)
 console.log("================================")
 
 const usuario =
