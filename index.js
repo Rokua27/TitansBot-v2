@@ -321,33 +321,34 @@ Solo el Staff Liga, administradores o el Owner pueden usar este comando.`
         
         try {
 
-            await comando.ejecutar(
-                sock,
-                mensaje,
-                args
-            )
+    await comando.ejecutar(
+        sock,
+        mensaje,
+        args
+    )
 
-        } catch (error) {
+} catch (error) {
 
-            console.log(
-                "ERROR EN MESSAGES.UPSERT"
-            )
+    console.log(error)
 
-            console.log(error)
-
-            try {
-
-                await sock.sendMessage(
-                    mensaje.key.remoteJid,
-                    {
-                        text:
-                        "❌ Error ejecutando comando."
-                    }
-                )
-
-            } catch {}
+    await sock.sendMessage(
+        mensaje.key.remoteJid,
+        {
+            text:
+            "❌ Error ejecutando comando."
         }
-    }
+    )
+}
+
+} catch (error) {
+
+    console.log(
+        "ERROR EN MESSAGES.UPSERT"
+    )
+
+    console.log(error)
+}
+}
 )
  sock.ev.on(
     "group-participants.update",
